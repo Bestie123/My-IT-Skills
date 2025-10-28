@@ -1,0 +1,1 @@
+https://practicum.yandex.ru/trainer/sql-database-basics/lesson/86d9d6bc-22ab-4b37-aac6-eabb996a8feb/

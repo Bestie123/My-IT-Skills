@@ -3,14 +3,16 @@
 ## 📝 Что хочу изучить (Backlog)
 Здесь технологии и темы, которые я планирую изучить в будущем.
 - [[MySQL]] #to-learn
-- [[PostgreSQL]] #to-learn
 - [[DockerCompose]] #to-learn
 - [[Kubernetes]] #to-learn
 - [[Java]] #to-learn
 - [[Git]] #to-learn 
+- [[MongoDB]] #to-learn 
+- [[SQLite]] #to-learn 
 
 ## 🚀 Что я сейчас учу (In Progress)
-- [[SQL]] #to-learning
+- [[База знаний/SQL/SQL]] #to-learning
+- [[PostgreSQL]] #to-learning 
 - [[Docker]] #to-learning 
 - 
 
