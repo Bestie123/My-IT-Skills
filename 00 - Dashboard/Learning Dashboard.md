@@ -6,6 +6,7 @@
 - [[DockerCompose]] #to-learn
 - [[Kubernetes]] #to-learn
 - [[Java]] #to-learn
+- - функциональный интерфейс 
 - [[Git]] #to-learn 
 - [[MongoDB]] #to-learn 
 - [[SQLite]] #to-learn 
@@ -14,6 +15,7 @@
 - [[База знаний/SQL/SQL]] #to-learning
 - [[PostgreSQL]] #to-learning 
 - [[Docker]] #to-learning 
+- [[База знаний/Java/Java]] #to-learning 
 - 
 
 ## ✅ Что я выучил (Done)

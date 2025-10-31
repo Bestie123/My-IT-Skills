@@ -1,0 +1,652 @@
+
+# Получение итоговых значений в SQL
+
+## Содержание ^k9p2r4m7x
+- [Введение](#^a1b2c3d4e5)
+- [Агрегатные функции](#^f6g7h8i9j0)
+  - [Базовые агрегатные функции](#^k1l2m3n4o5)
+  - [Статистические агрегатные функции](#^p6q7r8s9t0)
+- [Группировка данных с GROUP BY](#^u1v2w3x4y5)
+- [Фильтрация групп с HAVING](#^z6a7b8c9d0)
+- [Оконные функции для аналитических итогов](#^e1f2g3h4i5)
+  - [Базовые оконные функции](#^j6k7l8m9n0)
+  - [Расширенные оконные функции](#^o1p2q3r4s5)
+- [Операторы ROLLUP, CUBE и GROUPING SETS](#^t6u7v8w9x0)
+- [Итоговые отчеты и сводные таблицы](#^y1z2a3b4c5)
+- [Лучшие практики](#^d6e7f8g9h0)
+- [Заключение](#^i1j2k3l4m5)
+
+## Введение ^a1b2c3d4e5
+Получение итоговых значений - одна из ключевых задач аналитики данных в SQL. Это процесс агрегации, суммирования и анализа данных для получения сводной информации, статистики и бизнес-показателей.
+
+<big>**Основные методы получения итогов в SQL:**</big>
+
+- Агрегатные функции (SUM, COUNT, AVG и др.)
+- Группировка данных (GROUP BY)
+- Оконные функции для аналитических расчетов
+- Операторы расширенной группировки (ROLLUP, CUBE)
+- Построение сводных отчетов
+
+<small>Эффективное использование итоговых вычислений позволяет превращать сырые данные в ценную бизнес-информацию для принятия решений.</small>
+
+[↑ К содержанию](#^k9p2r4m7x)
+
+## Агрегатные функции ^f6g7h8i9j0
+Агрегатные функции выполняют вычисления над набором строк и возвращают единственное значение. Это фундаментальный инструмент для получения итогов в SQL.
+
+### Базовые агрегатные функции ^k1l2m3n4o5
+Основные агрегатные функции, используемые в большинстве SQL-запросов.
+
+**Синтаксис:**
+```sql
+SELECT AGGR_FUNCTION(column_name)
+FROM table_name
+[WHERE conditions];
+```
+
+**Основные агрегатные функции:**
+
+```sql
+-- COUNT - подсчет количества строк
+SELECT COUNT(*) as total_rows FROM orders;
+SELECT COUNT(DISTINCT customer_id) as unique_customers FROM orders;
+
+-- SUM - сумма значений
+SELECT SUM(amount) as total_sales FROM orders;
+SELECT SUM(quantity * unit_price) as total_revenue FROM order_items;
+
+-- AVG - среднее значение
+SELECT AVG(amount) as average_order_value FROM orders;
+SELECT AVG(DISTINCT price) as average_unique_price FROM products;
+
+-- MIN/MAX - минимальное/максимальное значение
+SELECT MIN(price) as min_price, MAX(price) as max_price FROM products;
+SELECT MIN(order_date) as first_order, MAX(order_date) as last_order FROM orders;
+```
+
+**Разбор функций:**
+- `COUNT(*)` - подсчитывает все строки, включая NULL
+- `COUNT(column)` - подсчитывает не-NULL значения в столбце
+- `COUNT(DISTINCT column)` - подсчитывает уникальные не-NULL значения
+- `SUM` и `AVG` игнорируют NULL значения
+- `DISTINCT` можно использовать с большинством агрегатных функций
+
+**Пример комплексного использования:**
+```sql
+SELECT 
+    COUNT(*) as total_orders,
+    COUNT(DISTINCT customer_id) as unique_customers,
+    SUM(total_amount) as total_revenue,
+    AVG(total_amount) as avg_order_value,
+    MIN(total_amount) as min_order,
+    MAX(total_amount) as max_order
+FROM orders
+WHERE order_date >= '2024-01-01';
+```
+
+[↑ К содержанию](#^k9p2r4m7x)
+
+### Статистические агрегатные функции ^p6q7r8s9t0
+Специализированные агрегатные функции для статистического анализа.
+
+```sql
+-- STDDEV - стандартное отклонение
+SELECT STDDEV(price) as price_stddev FROM products;
+
+-- VARIANCE - дисперсия
+SELECT VARIANCE(salary) as salary_variance FROM employees;
+
+-- PERCENTILE_CONT - непрерывная процентиль
+SELECT 
+    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY salary) as median_salary,
+    PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY salary) as q1_salary,
+    PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY salary) as q3_salary
+FROM employees;
+
+-- CORR - корреляция между двумя столбцами
+SELECT CORR(advertising_spend, sales) as spend_sales_correlation 
+FROM marketing_data;
+
+-- COVAR_POP - ковариация населения
+SELECT COVAR_POP(x, y) as population_covariance FROM dataset;
+```
+
+**Разбор статистических функций:**
+- `STDDEV` и `VARIANCE` показывают разброс данных
+- `PERCENTILE_CONT` вычисляет процентили (медиану, квартили)
+- `CORR` измеряет линейную связь между переменными
+- Статистические функции особенно полезны для анализа данных и ML
+
+**Пример статистического отчета:**
+```sql
+SELECT 
+    COUNT(*) as sample_size,
+    AVG(price) as mean_price,
+    STDDEV(price) as price_stddev,
+    MIN(price) as min_price,
+    MAX(price) as max_price,
+    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY price) as median_price
+FROM products
+WHERE category_id = 1;
+```
+
+[↑ К содержанию](#^k9p2r4m7x)
+
+## Группировка данных с GROUP BY ^u1v2w3x4y5
+GROUP BY позволяет группировать строки с одинаковыми значениями и применять агрегатные функции к каждой группе.
+
+**Базовый синтаксис:**
+```sql
+SELECT column1, AGGR_FUNCTION(column2)
+FROM table_name
+GROUP BY column1;
+```
+
+**Примеры группировки:**
+
+```sql
+-- Группировка по одному столбцу
+SELECT 
+    category_id,
+    COUNT(*) as product_count,
+    AVG(price) as avg_price
+FROM products
+GROUP BY category_id;
+
+-- Группировка по нескольким столбцам
+SELECT 
+    department_id,
+    job_title,
+    COUNT(*) as employee_count,
+    AVG(salary) as avg_salary
+FROM employees
+GROUP BY department_id, job_title;
+
+-- Группировка с выражениями
+SELECT 
+    EXTRACT(YEAR FROM order_date) as order_year,
+    EXTRACT(MONTH FROM order_date) as order_month,
+    COUNT(*) as order_count,
+    SUM(total_amount) as monthly_revenue
+FROM orders
+GROUP BY EXTRACT(YEAR FROM order_date), EXTRACT(MONTH FROM order_date);
+```
+
+**Важные правила GROUP BY:**
+- Все неагрегированные столбцы в SELECT должны быть в GROUP BY
+- Можно группировать по выражениям и функциям
+- Порядок группировки влияет на результат
+- GROUP BY выполняется после WHERE и до HAVING
+
+**Комплексный пример с сортировкой:**
+```sql
+SELECT 
+    c.category_name,
+    p.supplier_id,
+    COUNT(*) as product_count,
+    AVG(p.price) as avg_price,
+    SUM(p.units_in_stock) as total_stock
+FROM products p
+JOIN categories c ON p.category_id = c.category_id
+WHERE p.discontinued = FALSE
+GROUP BY c.category_name, p.supplier_id
+ORDER BY c.category_name, total_stock DESC;
+```
+
+[↑ К содержанию](#^k9p2r4m7x)
+
+## Фильтрация групп с HAVING ^z6a7b8c9d0
+HAVING используется для фильтрации групп после агрегации, аналогично тому как WHERE фильтрует строки до агрегации.
+
+**Синтаксис:**
+```sql
+SELECT column1, AGGR_FUNCTION(column2)
+FROM table_name
+GROUP BY column1
+HAVING condition;
+```
+
+**Примеры использования HAVING:**
+
+```sql
+-- Фильтрация по агрегатным значениям
+SELECT 
+    customer_id,
+    COUNT(*) as order_count,
+    SUM(total_amount) as total_spent
+FROM orders
+GROUP BY customer_id
+HAVING COUNT(*) >= 5 AND SUM(total_amount) > 1000;
+
+-- Поиск популярных товаров
+SELECT 
+    product_id,
+    COUNT(*) as times_ordered,
+    SUM(quantity) as total_quantity
+FROM order_items
+GROUP BY product_id
+HAVING SUM(quantity) > 100;
+
+-- Анализ эффективности сотрудников
+SELECT 
+    salesperson_id,
+    COUNT(*) as deals_closed,
+    AVG(deal_amount) as avg_deal_size
+FROM sales
+WHERE deal_date >= '2024-01-01'
+GROUP BY salesperson_id
+HAVING COUNT(*) >= 10 AND AVG(deal_amount) > 5000;
+```
+
+**Разбор отличий HAVING vs WHERE:**
+- `WHERE` фильтрует строки ДО группировки
+- `HAVING` фильтрует группы ПОСЛЕ группировки
+- `WHERE` не может использовать агрегатные функции
+- `HAVING` может использовать агрегатные функции в условиях
+
+**Порядок выполнения запроса с GROUP BY и HAVING:**
+```sql
+-- 1. FROM - выбор таблицы
+-- 2. WHERE - фильтрация строк
+-- 3. GROUP BY - группировка
+-- 4. HAVING - фильтрация групп  
+-- 5. SELECT - выбор столбцов
+-- 6. ORDER BY - сортировка
+
+SELECT department_id, AVG(salary) as avg_salary
+FROM employees
+WHERE hire_date > '2020-01-01'     -- Фильтрация ДО группировки
+GROUP BY department_id
+HAVING AVG(salary) > 50000         -- Фильтрация ПОСЛЕ группировки
+ORDER BY avg_salary DESC;
+```
+
+[↑ К содержанию](#^k9p2r4m7x)
+
+## Оконные функции для аналитических итогов ^e1f2g3h4i5
+Оконные функции позволяют выполнять вычисления над набором строк, связанных с текущей строкой, без группировки в единную выходную строку.
+
+### Базовые оконные функции ^j6k7l8m9n0
+Основные оконные функции для аналитических расчетов.
+
+**Синтаксис оконных функций:**
+```sql
+FUNCTION_NAME() OVER (
+    [PARTITION BY partition_expression]
+    [ORDER BY sort_expression]
+    [frame_clause]
+)
+```
+
+**Базовые оконные агрегатные функции:**
+
+```sql
+-- Накопительные итоги
+SELECT 
+    order_date,
+    total_amount,
+    SUM(total_amount) OVER (ORDER BY order_date) as running_total,
+    AVG(total_amount) OVER (ORDER BY order_date) as running_avg
+FROM orders;
+
+-- Итоги по разделам (партициям)
+SELECT 
+    department_id,
+    employee_name,
+    salary,
+    SUM(salary) OVER (PARTITION BY department_id) as dept_total_salary,
+    AVG(salary) OVER (PARTITION BY department_id) as dept_avg_salary
+FROM employees;
+
+-- Ранжирование и нумерация
+SELECT 
+    product_name,
+    price,
+    ROW_NUMBER() OVER (ORDER BY price DESC) as price_rank,
+    RANK() OVER (ORDER BY price DESC) as price_rank_with_ties,
+    DENSE_RANK() OVER (ORDER BY price DESC) as dense_rank
+FROM products;
+```
+
+**Разбор компонентов:**
+- `PARTITION BY` - разделяет данные на группы (аналогично GROUP BY)
+- `ORDER BY` - определяет порядок вычисления внутри окна
+- `frame_clause` - определяет скользящее окно для вычислений
+
+**Пример аналитического отчета:**
+```sql
+SELECT 
+    customer_id,
+    order_date,
+    total_amount,
+    -- Накопительная сумма по клиенту
+    SUM(total_amount) OVER (
+        PARTITION BY customer_id 
+        ORDER BY order_date
+    ) as customer_running_total,
+    -- Средний чек по клиенту
+    AVG(total_amount) OVER (
+        PARTITION BY customer_id
+    ) as customer_avg_order,
+    -- Процент от общего оборота клиента
+    total_amount * 100.0 / SUM(total_amount) OVER (
+        PARTITION BY customer_id
+    ) as percent_of_customer_total
+FROM orders
+ORDER BY customer_id, order_date;
+```
+
+[↑ К содержанию](#^k9p2r4m7x)
+
+### Расширенные оконные функции ^o1p2q3r4s5
+Продвинутые оконные функции для сложных аналитических расчетов.
+
+```sql
+-- Сравнение с предыдущими/следующими значениями
+SELECT 
+    month,
+    revenue,
+    LAG(revenue, 1) OVER (ORDER BY month) as prev_month_revenue,
+    LEAD(revenue, 1) OVER (ORDER BY month) as next_month_revenue,
+    revenue - LAG(revenue, 1) OVER (ORDER BY month) as month_over_month_growth
+FROM monthly_sales;
+
+-- Процентили и статистика по окну
+SELECT 
+    department_id,
+    employee_name,
+    salary,
+    PERCENT_RANK() OVER (PARTITION BY department_id ORDER BY salary) as salary_percent_rank,
+    CUME_DIST() OVER (PARTITION BY department_id ORDER BY salary) as salary_cume_dist,
+    NTILE(4) OVER (PARTITION BY department_id ORDER BY salary) as salary_quartile
+FROM employees;
+
+-- Скользящие средние и итоги
+SELECT 
+    date,
+    daily_sales,
+    AVG(daily_sales) OVER (
+        ORDER BY date 
+        ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+    ) as weekly_moving_avg,
+    SUM(daily_sales) OVER (
+        ORDER BY date 
+        ROWS BETWEEN 29 PRECEDING AND CURRENT ROW
+    ) as monthly_running_total
+FROM daily_sales_data;
+```
+
+**Разбор расширенных функций:**
+- `LAG/LEAD` - доступ к данным из предыдущих/следующих строк
+- `PERCENT_RANK/CUME_DIST` - относительное положение значения в наборе
+- `NTILE` - разделение на группы (квартили, квинтили и т.д.)
+- `ROWS BETWEEN` - определение границ скользящего окна
+
+**Пример комплексного аналитического запроса:**
+```sql
+SELECT 
+    product_id,
+    sale_date,
+    daily_revenue,
+    -- Скользящее среднее за 7 дней
+    AVG(daily_revenue) OVER (
+        PARTITION BY product_id 
+        ORDER BY sale_date 
+        ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+    ) as weekly_moving_avg,
+    -- Накопительный итог по продукту
+    SUM(daily_revenue) OVER (
+        PARTITION BY product_id 
+        ORDER BY sale_date
+    ) as product_running_total,
+    -- Ранжирование дней по выручке
+    RANK() OVER (
+        PARTITION BY product_id 
+        ORDER BY daily_revenue DESC
+    ) as revenue_rank
+FROM product_daily_sales
+ORDER BY product_id, sale_date;
+```
+
+[↑ К содержанию](#^k9p2r4m7x)
+
+## Операторы ROLLUP, CUBE и GROUPING SETS ^t6u7v8w9x0
+Расширенные операторы группировки для создания иерархических итогов и сводных отчетов.
+
+**Оператор ROLLUP:**
+```sql
+-- Иерархические итоги (от детальных к общим)
+SELECT 
+    COALESCE(department_name, 'Все отделы') as department,
+    COALESCE(job_title, 'Все должности') as job,
+    COUNT(*) as employee_count,
+    AVG(salary) as avg_salary
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+GROUP BY ROLLUP(department_name, job_title)
+ORDER BY department_name, job_title;
+```
+
+**Оператор CUBE:**
+```sql
+-- Все возможные комбинации группировки
+SELECT 
+    COALESCE(region, 'Все регионы') as region,
+    COALESCE(category_name, 'Все категории') as category,
+    COALESCE(EXTRACT(YEAR FROM order_date)::TEXT, 'Все годы') as year,
+    SUM(amount) as total_sales
+FROM sales s
+JOIN products p ON s.product_id = p.product_id
+GROUP BY CUBE(region, category_name, EXTRACT(YEAR FROM order_date))
+ORDER BY region, category_name, year;
+```
+
+**GROUPING SETS:**
+```sql
+-- Выборочные комбинации группировки
+SELECT 
+    department_id,
+    EXTRACT(YEAR FROM hire_date) as hire_year,
+    job_title,
+    COUNT(*) as employee_count
+FROM employees
+GROUP BY GROUPING SETS (
+    (department_id, job_title),           -- По отделам и должностям
+    (EXTRACT(YEAR FROM hire_date)),       -- По годам приема
+    (department_id, EXTRACT(YEAR FROM hire_date)), -- По отделам и годам
+    ()                                    -- Общий итог
+)
+ORDER BY department_id, hire_year, job_title;
+```
+
+**Функции для работы с итогами:**
+```sql
+-- GROUPING - идентифицирует строки итогов
+SELECT 
+    department_id,
+    job_title,
+    COUNT(*) as employee_count,
+    GROUPING(department_id) as is_dept_total,
+    GROUPING(job_title) as is_job_total,
+    CASE 
+        WHEN GROUPING(department_id) = 1 AND GROUPING(job_title) = 1 THEN 'Общий итог'
+        WHEN GROUPING(job_title) = 1 THEN 'Итог по отделу'
+        ELSE 'Детальная запись'
+    END as summary_level
+FROM employees
+GROUP BY ROLLUP(department_id, job_title);
+```
+
+**Разбор операторов:**
+- `ROLLUP` - создает иерархические итоги (a, b) → (a) → ()
+- `CUBE` - создает все возможные комбинации группировки
+- `GROUPING SETS` - позволяет указать конкретные комбинации
+- `GROUPING()` - помогает идентифицировать строки итогов
+
+[↑ К содержанию](#^k9p2r4m7x)
+
+## Итоговые отчеты и сводные таблицы ^y1z2a3b4c5
+Построение комплексных отчетов с использованием различных методов агрегации.
+
+**Многоуровневые итоговые отчеты:**
+```sql
+-- Отчет по продажам с несколькими уровнями агрегации
+WITH sales_summary AS (
+    SELECT 
+        region,
+        product_category,
+        EXTRACT(YEAR FROM order_date) as order_year,
+        EXTRACT(MONTH FROM order_date) as order_month,
+        SUM(quantity) as total_quantity,
+        SUM(quantity * unit_price) as total_revenue,
+        COUNT(DISTINCT customer_id) as unique_customers
+    FROM orders o
+    JOIN order_items oi ON o.order_id = oi.order_id
+    JOIN products p ON oi.product_id = p.product_id
+    GROUP BY ROLLUP(region, product_category, order_year, order_month)
+)
+SELECT 
+    COALESCE(region, 'Все регионы') as region,
+    COALESCE(product_category, 'Все категории') as category,
+    COALESCE(order_year::TEXT, 'Все годы') as year,
+    COALESCE(order_month::TEXT, 'Все месяцы') as month,
+    total_quantity,
+    total_revenue,
+    unique_customers,
+    CASE 
+        WHEN region IS NULL AND product_category IS NULL 
+             AND order_year IS NULL AND order_month IS NULL THEN 'Общий итог'
+        WHEN product_category IS NULL AND order_year IS NULL 
+             AND order_month IS NULL THEN 'Итог по региону'
+        WHEN order_year IS NULL AND order_month IS NULL THEN 'Итог по региону и категории'
+        WHEN order_month IS NULL THEN 'Итог по году'
+        ELSE 'Детальные данные'
+    END as summary_level
+FROM sales_summary
+ORDER BY region, category, year, month;
+```
+
+**Сводные таблицы с условной агрегацией:**
+```sql
+-- PIVOT-отчет по категориям и годам
+SELECT 
+    region,
+    SUM(CASE WHEN EXTRACT(YEAR FROM order_date) = 2022 THEN total_amount ELSE 0 END) as y2022_sales,
+    SUM(CASE WHEN EXTRACT(YEAR FROM order_date) = 2023 THEN total_amount ELSE 0 END) as y2023_sales,
+    SUM(CASE WHEN EXTRACT(YEAR FROM order_date) = 2024 THEN total_amount ELSE 0 END) as y2024_sales,
+    SUM(total_amount) as total_sales
+FROM orders
+GROUP BY region
+ORDER BY total_sales DESC;
+
+-- Агрегация с условиями по нескольким измерениям
+SELECT 
+    salesperson_id,
+    COUNT(*) as total_deals,
+    COUNT(CASE WHEN deal_size = 'SMALL' THEN 1 END) as small_deals,
+    COUNT(CASE WHEN deal_size = 'MEDIUM' THEN 1 END) as medium_deals,
+    COUNT(CASE WHEN deal_size = 'LARGE' THEN 1 END) as large_deals,
+    SUM(CASE WHEN status = 'CLOSED' THEN deal_amount ELSE 0 END) as closed_revenue,
+    AVG(CASE WHEN status = 'CLOSED' THEN deal_amount END) as avg_closed_deal
+FROM sales_deals
+GROUP BY salesperson_id
+HAVING COUNT(*) >= 5;
+```
+
+**Аналитические отчеты с оконными функциями:**
+```sql
+-- Отчет с ранжированием и долями
+SELECT 
+    department_name,
+    employee_name,
+    salary,
+    -- Ранг зарплаты в отделе
+    RANK() OVER (PARTITION BY department_name ORDER BY salary DESC) as salary_rank,
+    -- Доля от общей суммы зарплат отдела
+    salary * 100.0 / SUM(salary) OVER (PARTITION BY department_name) as salary_percent,
+    -- Разница от средней по отделу
+    salary - AVG(salary) OVER (PARTITION BY department_name) as diff_from_avg,
+    -- Накопительная сумма по убыванию зарплат
+    SUM(salary) OVER (
+        PARTITION BY department_name 
+        ORDER BY salary DESC 
+        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+    ) as running_total
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+ORDER BY department_name, salary DESC;
+```
+
+[↑ К содержанию](#^k9p2r4m7x)
+
+## Лучшие практики ^d6e7f8g9h0
+Эффективная работа с итоговыми значениями требует соблюдения определенных правил и рекомендаций.
+
+### Производительность агрегации:
+```sql
+-- ✅ Эффективно: фильтрация ДО агрегации
+SELECT category_id, AVG(price)
+FROM products
+WHERE price > 0          -- Фильтр ДО группировки
+GROUP BY category_id;
+
+-- ❌ Менее эффективно: фильтрация ПОСЛЕ агрегации
+SELECT category_id, AVG(price)
+FROM products
+GROUP BY category_id
+HAVING AVG(price) > 0;   -- Фильтр ПОСЛЕ группировки
+```
+
+### Оптимизация группировки:
+```sql
+-- ✅ Оптимально: группировка по индексированным столбцам
+SELECT department_id, COUNT(*)
+FROM employees
+GROUP BY department_id;  -- department_id имеет индекс
+
+-- ⚠️ Менее оптимально: группировка по выражениям
+SELECT EXTRACT(YEAR FROM hire_date), COUNT(*)
+FROM employees
+GROUP BY EXTRACT(YEAR FROM hire_date); -- Требует вычислений для каждой строки
+```
+
+### Работа с NULL в агрегации:
+```sql
+-- ✅ Правильная обработка NULL
+SELECT 
+    COUNT(*) as total_rows,              -- Все строки
+    COUNT(column_name) as non_null_count,-- Только не-NULL
+    AVG(COALESCE(price, 0)) as avg_price -- Замена NULL на 0
+FROM products;
+
+-- Использование FILTER для условной агрегации (PostgreSQL)
+SELECT 
+    COUNT(*) as total_orders,
+    COUNT(*) FILTER (WHERE status = 'COMPLETED') as completed_orders,
+    AVG(total_amount) FILTER (WHERE status = 'COMPLETED') as avg_completed_order
+FROM orders;
+```
+
+### Структурирование сложных запросов:
+```sql
+-- Использование CTE для читаемости
+WITH monthly_sales AS (
+    SELECT 
+        EXTRACT(YEAR FROM order_date) as year,
+        EXTRACT(MONTH FROM order_date) as month,
+        SUM(total_amount) as revenue,
+        COUNT(*) as order_count
+    FROM orders
+    GROUP BY EXTRACT(YEAR FROM order_date), EXTRACT(MONTH FROM order_date)
+),
+sales_growth AS (
+    SELECT 
+        year,
+        month,
+        revenue,
+        LAG(revenue) OVER (ORDER BY year, month) as prev_month_revenue,
+        (revenue - LAG(revenue) OVER (ORDER BY year, month)) * 100.0 / 
+        LAG(revenue) OVER (ORDER BY year, month) as growth_percent
+    FROM monthly_sales
+)
+SELECT * FROM sales_growth WHE
