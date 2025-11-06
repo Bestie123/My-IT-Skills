@@ -531,12 +531,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Career/Internship.md",
+                "file": "0 -Алгоритм изучения технологий/Алгоритм изучения.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Internship"
+              "title": "Алгоритм изучения"
             }
           }
         ],
@@ -617,7 +617,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Career/Internship.md",
+            "file": "0 -Алгоритм изучения технологий/Алгоритм изучения.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -675,8 +675,11 @@
   },
   "active": "82403eb7d7ffefed",
   "lastOpenFiles": [
-    "00 - Dashboard/Learning Dashboard2.md",
+    "0 -Алгоритм изучения технологий/Алгоритм2.md",
+    "0 -Алгоритм изучения технологий/Алгоритм изучения.md",
+    "База знаний/Тренажеры & практика.md",
     "Career/Internship.md",
+    "00 - Dashboard/Learning Dashboard2.md",
     "00 - Dashboard/Learning Dashboard.md",
     "00 - Dashboard/My developmrnt.md",
     "Без названия 1",
@@ -700,9 +703,6 @@
     "База знаний/SQL/Рекурсивные запросы.md",
     "База знаний/SQL/Common Table Expressions (CTE).md",
     "База знаний/SQL/UNION.md",
-    "База знаний/SQL/Предикат  IN.md",
-    "База знаний/SQL/HAVING.md",
-    "База знаний/SQL/GROUP BY.md",
     "База знаний/Java",
     "База знаний/SQL",
     "База знаний"
