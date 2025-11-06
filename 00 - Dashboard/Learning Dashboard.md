@@ -6,7 +6,10 @@
 - [[DockerCompose]] #to-learn
 - [[Kubernetes]] #to-learn
 - [[Java]] #to-learn
-- - функциональный интерфейс 
+- Spring boot
+- Hibernate
+- Maven/ Gradle
+-  функциональный интерфейс 
 - [[Git]] #to-learn 
 - [[MongoDB]] #to-learn 
 - [[SQLite]] #to-learn 

@@ -531,12 +531,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "База знаний/Java/Объектно-Ориентированное Программирование.md",
+                "file": "Career/Internship.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Объектно-Ориентированное Программирование"
+              "title": "Internship"
             }
           }
         ],
@@ -617,7 +617,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "База знаний/Java/Объектно-Ориентированное Программирование.md",
+            "file": "Career/Internship.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -675,15 +675,24 @@
   },
   "active": "82403eb7d7ffefed",
   "lastOpenFiles": [
-    "Основные принципы ООП в Java.md",
+    "00 - Dashboard/Learning Dashboard2.md",
+    "Career/Internship.md",
+    "00 - Dashboard/Learning Dashboard.md",
+    "00 - Dashboard/My developmrnt.md",
+    "Без названия 1",
+    "Career",
+    "База знаний/База знаний.md",
+    "База знаний.md",
+    "База знаний/SQL/Преобразование типов данных.md",
+    "База знаний/Java/Arrays.md",
     "База знаний/Java/Объектно-Ориентированное Программирование.md",
+    "Основные принципы ООП в Java.md",
     "База знаний/SQL/CASE.md",
     "База знаний/SQL/Целочисленное деление.md",
     "База знаний/SQL/Коррелирующие подзапросы.md",
     "База знаний/SQL/CROSS JOIN - декартово произведение.md",
     "База знаний/SQL/Явные операции соединения в SQL.md",
     "База знаний/SQL/Функция COALISCE.md",
-    "База знаний/SQL/Преобразование типов данных.md",
     "Получение итоговых значений в SQL.md",
     "База знаний/SQL/Получение итоговых значений.md",
     "База знаний/SQL/Оператор CREATE.md",
@@ -694,13 +703,6 @@
     "База знаний/SQL/Предикат  IN.md",
     "База знаний/SQL/HAVING.md",
     "База знаний/SQL/GROUP BY.md",
-    "99 - Templates/Промпт для генерации документации с ссылками на параграфы.md",
-    "ORDER BY.md",
-    "Как работать с датой и временем.md",
-    "Без названия 1.md",
-    "Без названия 4.md",
-    "Без названия 3.md",
-    "Без названия 2.md",
     "База знаний/Java",
     "База знаний/SQL",
     "База знаний"
