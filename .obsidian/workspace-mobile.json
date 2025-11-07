@@ -566,9 +566,23 @@
               "icon": "lucide-file",
               "title": "01-Вопросв по алгоритму"
             }
+          },
+          {
+            "id": "12334e32fddc490c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Идеи для пет проектов.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Идеи для пет проектов"
+            }
           }
         ],
-        "currentTab": 39
+        "currentTab": 40
       }
     ],
     "direction": "vertical"
@@ -645,7 +659,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "0 -Алгоритм изучения технологий/01-Вопросв по алгоритму.md",
+            "file": "Идеи для пет проектов.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -701,10 +715,10 @@
       "bases:Создать новую базу": false
     }
   },
-  "active": "5044d0dc862b956c",
+  "active": "12334e32fddc490c",
   "lastOpenFiles": [
-    "Без названия 1.md",
     "0 -Алгоритм изучения технологий/01-Вопросв по алгоритму.md",
+    "Идеи для пет проектов.md",
     "0 -Алгоритм изучения технологий/0-Вопросы по алгоритму.md",
     "0 -Алгоритм изучения технологий/0- Вопросы алгоритму.md",
     "0 -Алгоритм изучения технологий/Алгоритм изучения технологий.md",
