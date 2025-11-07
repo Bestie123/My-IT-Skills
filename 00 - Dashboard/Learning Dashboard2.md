@@ -12,6 +12,8 @@ https://tproger.ru/articles/6-sposobov-bolshe-uznat-pro-algoritmy
 - terraform
 - gitops
 - python
+- bash
+- tcp/ip
 
 - Frontendcinf
 - HolyJs

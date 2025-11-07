@@ -573,12 +573,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Идеи для пет проектов.md",
+                "file": "База знаний/Тренажеры & практика.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Идеи для пет проектов"
+              "title": "Тренажеры & практика"
             }
           }
         ],
@@ -659,7 +659,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Идеи для пет проектов.md",
+            "file": "База знаний/Тренажеры & практика.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -717,8 +717,10 @@
   },
   "active": "12334e32fddc490c",
   "lastOpenFiles": [
-    "0 -Алгоритм изучения технологий/01-Вопросв по алгоритму.md",
+    "Career/Internship.md",
+    "00 - Dashboard/Learning Dashboard2.md",
     "Идеи для пет проектов.md",
+    "0 -Алгоритм изучения технологий/01-Вопросв по алгоритму.md",
     "0 -Алгоритм изучения технологий/0-Вопросы по алгоритму.md",
     "0 -Алгоритм изучения технологий/0- Вопросы алгоритму.md",
     "0 -Алгоритм изучения технологий/Алгоритм изучения технологий.md",
@@ -738,10 +740,8 @@
     "PostgreSQL.md",
     "ORDER BY.md",
     "MySQL.md",
-    "Career/Internship.md",
     "0 -Алгоритм изучения технологий/Алгоритм2.md",
     "База знаний/Тренажеры & практика.md",
-    "00 - Dashboard/Learning Dashboard2.md",
     "00 - Dashboard/Learning Dashboard.md",
     "Без названия 1",
     "Career",
