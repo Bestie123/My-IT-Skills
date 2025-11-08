@@ -573,12 +573,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "База знаний/Тренажеры & практика.md",
+                "file": "Идеи для пет проектов.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Тренажеры & практика"
+              "title": "Идеи для пет проектов"
             }
           }
         ],
@@ -659,7 +659,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "База знаний/Тренажеры & практика.md",
+            "file": "Идеи для пет проектов.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -718,6 +718,7 @@
   "active": "12334e32fddc490c",
   "lastOpenFiles": [
     "Career/Internship.md",
+    "База знаний/Тренажеры & практика.md",
     "00 - Dashboard/Learning Dashboard2.md",
     "Идеи для пет проектов.md",
     "0 -Алгоритм изучения технологий/01-Вопросв по алгоритму.md",
@@ -741,7 +742,6 @@
     "ORDER BY.md",
     "MySQL.md",
     "0 -Алгоритм изучения технологий/Алгоритм2.md",
-    "База знаний/Тренажеры & практика.md",
     "00 - Dashboard/Learning Dashboard.md",
     "Без названия 1",
     "Career",

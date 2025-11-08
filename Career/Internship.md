@@ -25,3 +25,4 @@ Vk education
 - sql-ex.ru
 - sql тесты
 - codeforces.com
+- https://start.avito.ru/tech?utm_source=yandex&utm_medium=cpc&utm_campaign=techintern_mk&yclid=7505714346844487679&ybaip=1
