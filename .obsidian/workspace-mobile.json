@@ -573,12 +573,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Идеи для пет проектов.md",
+                "file": "Career/Internship.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Идеи для пет проектов"
+              "title": "Internship"
             }
           }
         ],
@@ -610,7 +610,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "tag:#Текущие",
+            "query": "tag:#Т-банк",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -659,7 +659,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Идеи для пет проектов.md",
+            "file": "Career/Internship.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -717,10 +717,11 @@
   },
   "active": "12334e32fddc490c",
   "lastOpenFiles": [
+    "Career/Internship +.md",
     "Career/Internship.md",
+    "Идеи для пет проектов.md",
     "База знаний/Тренажеры & практика.md",
     "00 - Dashboard/Learning Dashboard2.md",
-    "Идеи для пет проектов.md",
     "0 -Алгоритм изучения технологий/01-Вопросв по алгоритму.md",
     "0 -Алгоритм изучения технологий/0-Вопросы по алгоритму.md",
     "0 -Алгоритм изучения технологий/0- Вопросы алгоритму.md",
@@ -742,7 +743,6 @@
     "ORDER BY.md",
     "MySQL.md",
     "0 -Алгоритм изучения технологий/Алгоритм2.md",
-    "00 - Dashboard/Learning Dashboard.md",
     "Без названия 1",
     "Career",
     "База знаний/Java",
