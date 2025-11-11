@@ -17,5 +17,10 @@
  - *** стажировка Системный инженер (SRE) и МАТЕРИАЛЫ - https://education.tbank.ru/start/sre_engineer/?utm_source=telegram_fintech&utm_medium=smm.unp&utm_campaign=start.sre_engineer&dsp_click_id=fca0b530-54fc-4cfa-8aaa-c78d15394f5c
  - Как проходит знакомство с командой - https://www.tbank.ru/career/it/interview/teams/
 
+
+
+
+
+---
 # Авито
 https://start.avito.ru/tech?utm_source=yandex&utm_medium=cpc&utm_campaign=techintern_mk&yclid=7505714346844487679&ybaip=1
