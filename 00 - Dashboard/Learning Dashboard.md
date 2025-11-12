@@ -6,8 +6,40 @@
 - [[DockerCompose]] #to-learn
 - [[Kubernetes]] #to-learn
 - [[Java]] #to-learn
-- Spring boot
-- Hibernate
+  - Spring (Бэкенд)
+    - Spring boot
+    - Spring core & context 
+    - Spring MVC
+    - Spring Data JPA
+    - Spring Security / JWT / Oauth2  основы / HTTPS/ SSL
+    - Spring Actuator
+  - Базы данных 
+     + JDBC
+     + JPA / Hibernate
+     + Redis
+     + Mongo DB
+  - Тестирование 
+    - JUnit 5/4
+    - Mockito
+  - REST API
+  - Основы HTTP
+  - CRUD
+  - Микросервисная архитектура 
+  - Message Brokers
+    - RabbitMQ
+    - Kafka
+  - Непрерывная интеграция и доставка (CI/CD)
+  - Github Actions
+  - Gitlab CI
+  - Мониторинг и логирование 
+    - Spring Actuator
+    - Prometheus + Grafana (основы)
+    - ELK Stack (Elasticsearch, Logstash, Kibana) - основы
+-  QA
+  - Postman
+  - Insomnia 
+  - Swagger
+  - Open API
 - Maven/ Gradle
 -  функциональный интерфейс 
 - [[Git]] #to-learn 

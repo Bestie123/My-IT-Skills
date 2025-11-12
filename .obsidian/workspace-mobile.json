@@ -573,12 +573,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Career/Internship +.md",
+                "file": "00 - Dashboard/Dashboard1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Internship +"
+              "title": "Dashboard1"
             }
           }
         ],
@@ -659,7 +659,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Career/Internship +.md",
+            "file": "00 - Dashboard/Dashboard1.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -717,11 +717,13 @@
   },
   "active": "12334e32fddc490c",
   "lastOpenFiles": [
-    "Career/Internship.md",
+    "00 - Dashboard/Learning Dashboard.md",
+    "00 - Dashboard/Dashboard1.md",
+    "00 - Dashboard/Learning Dashboard2.md",
     "Career/Internship +.md",
+    "Career/Internship.md",
     "Идеи для пет проектов.md",
     "База знаний/Тренажеры & практика.md",
-    "00 - Dashboard/Learning Dashboard2.md",
     "0 -Алгоритм изучения технологий/01-Вопросв по алгоритму.md",
     "0 -Алгоритм изучения технологий/0-Вопросы по алгоритму.md",
     "0 -Алгоритм изучения технологий/0- Вопросы алгоритму.md",
@@ -741,8 +743,6 @@
     "SQL.md",
     "PostgreSQL.md",
     "ORDER BY.md",
-    "MySQL.md",
-    "0 -Алгоритм изучения технологий/Алгоритм2.md",
     "Без названия 1",
     "Career",
     "База знаний/Java",
