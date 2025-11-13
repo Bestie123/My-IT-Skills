@@ -8,7 +8,6 @@
 
 - **Java Ecosystem**
   - **Java Core**
-    - Многопоточность и Concurrent Collections
     - Глубокое изучение Collections (HashMap, ArrayList)
     - Паттерны проектирования (Singleton, Factory, Builder)
     - Garbage Collection (основы)
