@@ -1,0 +1,309 @@
+<table>
+<thead>
+<tr>
+<th>Категория</th>
+<th>Технология</th>
+<th>Статус</th>
+<th>Уровень</th>
+<th>Прогресс</th>
+<th>Дата обновления</th>
+</tr>
+</thead>
+<tbody>
+<!-- Базы данных -->
+<tr style="background-color: #f0f8ff;">
+<td><strong>🗃️ Базы данных</strong></td>
+<td>SQL</td>
+<td>✅ Изучено</td>
+<td>4/4</td>
+<td>100%</td>
+<td>12.12.2024</td>
+</tr>
+<tr style="background-color: #f0f8ff;">
+<td></td>
+<td>PostgreSQL</td>
+<td>🚧 В процессе</td>
+<td>1/4</td>
+<td>30%</td>
+<td>12.12.2024</td>
+</tr>
+<tr style="background-color: #f0f8ff;">
+<td></td>
+<td>MySQL</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #f0f8ff;">
+<td></td>
+<td>SQLite</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+
+<!-- Java Ecosystem -->
+<tr style="background-color: #fff0f5;">
+<td><strong>☕ Java Ecosystem</strong></td>
+<td>Java Core</td>
+<td>🚧 В процессе</td>
+<td>1/4</td>
+<td>45%</td>
+<td>12.12.2024</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>Spring Boot</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>Spring Core & Context</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>Spring MVC</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>Spring Data JPA</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>Spring Security + JWT</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>Spring Actuator</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>JDBC</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>JPA / Hibernate</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>JUnit 5/4</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>Mockito</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>REST API</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>Maven/Gradle</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>RabbitMQ</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>Kafka</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>Микросервисы</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>Redis</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff0f5;">
+<td></td>
+<td>MongoDB</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+
+<!-- Infrastructure & DevOps -->
+<tr style="background-color: #f0fff0;">
+<td><strong>🔄 Infrastructure & DevOps</strong></td>
+<td>Docker</td>
+<td>🚧 В процессе</td>
+<td>1/4</td>
+<td>20%</td>
+<td>12.12.2024</td>
+</tr>
+<tr style="background-color: #f0fff0;">
+<td></td>
+<td>Docker Compose</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #f0fff0;">
+<td></td>
+<td>Kubernetes</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #f0fff0;">
+<td></td>
+<td>GitHub Actions</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #f0fff0;">
+<td></td>
+<td>GitLab CI</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #f0fff0;">
+<td></td>
+<td>Prometheus + Grafana</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #f0fff0;">
+<td></td>
+<td>ELK Stack</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+
+<!-- QA & Инструменты разработки -->
+<tr style="background-color: #fff8dc;">
+<td><strong>🔧 QA & Инструменты разработки</strong></td>
+<td>Jira</td>
+<td>✅ Изучено</td>
+<td>4/4</td>
+<td>100%</td>
+<td>12.12.2024</td>
+</tr>
+<tr style="background-color: #fff8dc;">
+<td></td>
+<td>Kanban</td>
+<td>✅ Изучено</td>
+<td>4/4</td>
+<td>100%</td>
+<td>12.12.2024</td>
+</tr>
+<tr style="background-color: #fff8dc;">
+<td></td>
+<td>Git</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff8dc;">
+<td></td>
+<td>Postman</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff8dc;">
+<td></td>
+<td>Insomnia</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff8dc;">
+<td></td>
+<td>Swagger</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+<tr style="background-color: #fff8dc;">
+<td></td>
+<td>Open API</td>
+<td>📝 В планах</td>
+<td>0/4</td>
+<td>0%</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>

@@ -1,35 +1,4 @@
-# Мой план обучения
-
-## 📊 Общий прогресс всех технологий
-
-<table>
-<thead>
-<tr>
-<th>Категория</th>
-<th>Технология</th>
-<th>Статус</th>
-<th>Уровень</th>
-<th>Прогресс</th>
-<th>Дата обновления</th>
-</tr>
-</thead>
-<tbody>
-<!-- Java Ecosystem -->
-<tr style="background-color: #f0f8ff;">
-<td rowspan="18"><strong>☕ Java Ecosystem</strong></td>
-<td>Java Core</td>
-<td>🚧 В процессе</td>
-<td>1/4</td>
-<td>
-<div style="width: 100px; background: #f0f0f0; border-radius: 5px; display: inline-block;">
-<div style="height: 16px; background: #4CAF50; border-radius: 5px; width: 45%; text-align: center; color: white; font-size: 12px; line-height: 16px;">45%</div>
-</div>
-</td>
-<td>12.12.2024</td>
-</tr>
-<tr>
-<td>Spring Boot</td>
-<td>📝 В планах</td>
+l<td>📝 В планах</td>
 <td>0/4</td>
 <td>
 <div style="width: 100px; background: #f0f0f0; border-radius: 5px; display: inline-block;">
@@ -443,10 +412,10 @@
 - **Docker** (30%) - до 10.02.2025
 
 ### Ближайшие цели
-- [ ] Завершить Java Core до 20.01.2025
-- [ ] Создать Проект 1 до 15.02.2025  
-- [ ] Пройти Уровень 2 SQL до 01.03.2025
-- [ ] Изучить Docker Compose до 10.02.2025
+- [x] Завершить Java Core до 20.01.2025
+- [x] Создать Проект 1 до 15.02.2025  
+- [x] Пройти Уровень 2 SQL до 01.03.2025
+- [x] Изучить Docker Compose до 10.02.2025
 
 ## 💡 Легенда статусов
 - ✅ **Завершено** - технология изучена на текущем уровне
