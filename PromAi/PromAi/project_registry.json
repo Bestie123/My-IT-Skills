@@ -1,0 +1,81 @@
+{
+  "projectId": "PROJECT_TechKnowledgeBase",
+  "modules": {
+    "MODULE_DataManager_VER_1.0": {
+      "path": "test1.html",
+      "functions": [
+        "FUNC_getNodeByPath_001",
+        "FUNC_saveToLocalStorage_002",
+        "FUNC_addCategory_003",
+        "FUNC_addNode_004",
+        "FUNC_addTechnology_005"
+      ],
+      "dependencies": [],
+      "status": "active"
+    },
+    "MODULE_UIManager_VER_1.0": {
+      "path": "test1.html",
+      "functions": [
+        "FUNC_showModal_001",
+        "FUNC_hideModals_002",
+        "FUNC_showNotification_003"
+      ],
+      "dependencies": [],
+      "status": "active"
+    },
+    "MODULE_AccordionManager_VER_1.0": {
+      "path": "test1.html",
+      "functions": [
+        "FUNC_renderAccordion_001",
+        "FUNC_buildAccordion_002",
+        "FUNC_toggleItem_003"
+      ],
+      "dependencies": ["MODULE_DataManager_VER_1.0"],
+      "status": "active"
+    },
+    "MODULE_ChecklistManager_VER_1.0": {
+      "path": "test1.html",
+      "functions": [
+        "FUNC_manageChecklist_001",
+        "FUNC_addChecklistItem_002",
+        "FUNC_toggleChecklistItem_003"
+      ],
+      "dependencies": ["MODULE_DataManager_VER_1.0", "MODULE_UIManager_VER_1.0"],
+      "status": "active"
+    },
+    "MODULE_AuthManager_VER_1.0": {
+      "path": "test1.html",
+      "functions": [
+        "FUNC_testAuth_001",
+        "FUNC_saveAuth_002",
+        "FUNC_loadFromGitHub_003",
+        "FUNC_saveToGitHub_004",
+        "FUNC_autoSaveToGitHub_005"
+      ],
+      "dependencies": ["MODULE_DataManager_VER_1.0", "MODULE_UIManager_VER_1.0"],
+      "status": "active"
+    },
+    "MODULE_KnowledgeManager_VER_1.0": {
+      "path": "test1.html",
+      "functions": [
+        "FUNC_openKnowledgeBase_001",
+        "FUNC_saveContent_002",
+        "FUNC_renderMedia_003",
+        "FUNC_performSearch_004"
+      ],
+      "dependencies": ["MODULE_DataManager_VER_1.0", "MODULE_UIManager_VER_1.0"],
+      "status": "active"
+    },
+    "MODULE_KnowledgeEditor_VER_1.0": {
+      "path": "test1.html",
+      "functions": [
+        "FUNC_formatText_001",
+        "FUNC_insertTable_002",
+        "FUNC_insertLink_003",
+        "FUNC_insertImage_004"
+      ],
+      "dependencies": ["MODULE_KnowledgeManager_VER_1.0"],
+      "status": "active"
+    }
+  }
+}
